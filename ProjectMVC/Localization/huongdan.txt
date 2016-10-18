@@ -1,0 +1,22 @@
+﻿
+Tạo Đa ngôn ngữ :
+
+1: App_Start
+- tạo LocalizationAttribute.cs
+- tạo LocalizedControllerActivator.cs
+- tạo thư mục Infrastructure
+- tạo FilterConfig.cs
+- chỉnh sửa route
+- thiết lập Global
+	FilterConfig.Configure(GlobalFilters.Filters);
+	ControllerBuilder.Current.SetControllerFactory(new DefaultControllerFactory(new LocalizedControllerActivator()));
+2: 
+- tạo App_GlobalResources 
+- tạo resources file
+3:
+- thiết lập chọn ngôn ngữ trên view
+<li><a href="/en/@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">EN</a></li>
+<li><a href="/vi/@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()" class="active">VI</a></li>
+4:
+Hiển thị
+- @Resources.StringHome.stringHome

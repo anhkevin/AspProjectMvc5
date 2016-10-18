@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Localization</h2>
+
+<a href="/en/@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">EN</a> | 
+<a href="/vi/@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()" class="active">VI</a>
+<ul>
+    
+    <li><a href="@Url.Action("Index", "")">@Resources.StringHome.stringHome</a></li>
+    <li><a href="@Url.Action("Index", "about")">@Resources.StringHome.stringAbout</a></li>
+    <li><a href="@Url.Action("Index", "contact")">@Resources.StringHome.stringContact</a></li>
+</ul>
